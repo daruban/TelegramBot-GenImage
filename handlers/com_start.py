@@ -1,13 +1,18 @@
 from core import bot
-from models.Chats import Chat
+from models.Chat import Chat
 from models.Base import session
-
+from datetime import datetime
 
 @bot.message_handler(commands=["start"], chat_types=["group"])
 def start(message):
-    chat = session.get(Chat, 1)
+    if Chat.get(message.chat.id):
+        text_mes = f"Группа авторизирована"
+    else:
+        chat = Chat.create(chat_id = message.chat.id)
+        text_mes = f"Группа зарегестрирована"        
+    print(Chat.get(message.chat.id))
     bot.send_message(
         message.chat.id,
-        f"Группа зарегестрирована {chat}",
+        text_mes,
         parse_mode="html",
     )
