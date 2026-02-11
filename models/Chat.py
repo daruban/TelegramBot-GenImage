@@ -2,6 +2,11 @@ from sqlalchemy import Column, Integer, String, Boolean, DateTime, JSON
 from typing import Optional, List, Type, TypeVar, Generic
 from datetime import datetime
 from models.Base import Base, session
+import json  
+
+with open("resource/body.json", "r", encoding="utf-8") as f:  
+    body = json.load(f)  
+
 
 class Chat(Base):
     __tablename__ = 'chats'
@@ -17,7 +22,7 @@ class Chat(Base):
     def create(self, **kwargs):
         chat = self(
             chat_id = kwargs.get('chat_id'),
-            chat_data = {'f':'f'},
+            chat_data = body,
             is_active = True,
             created_at = datetime.now(),
             updated_at = datetime.now(),
