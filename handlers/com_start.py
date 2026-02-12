@@ -16,4 +16,3 @@ def start(message):
         text_mes,
         parse_mode="html",
     )
-    bot.edit_message_text()

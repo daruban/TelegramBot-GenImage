@@ -12,6 +12,6 @@ import threading
 
 
 
-@bot.message_handler(commands=["gen"], chat_types=["group"])
-def gen(message):
-    gen_hendler(message.chat.id ,message.text)
+@bot.callback_query_handler(func=lambda call: call.data.startswith('gen_'))
+def ch_gen(call):
+    gen_hendler(call.json['message']['chat']['id'], call.message.caption.split('\n')[0])

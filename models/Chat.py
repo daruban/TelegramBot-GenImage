@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, JSON
-from typing import Optional, List, Type, TypeVar, Generic
+from typing import Optional, List, Type, TypeVar, Generic, Dict
 from datetime import datetime
 from models.Base import Base, session
 import json  
@@ -35,3 +35,8 @@ class Chat(Base):
     def get(self, chat_id):
         return session.query(self).filter_by(chat_id = chat_id, is_active = True, deleted_at = None).first()
 
+    @classmethod
+    def update_chat_data(self, chat_id: int, chat_data: Dict):
+        chat = session.query(self).filter_by(chat_id = chat_id, is_active = True, deleted_at = None).first()
+        chat.chat_data = chat_data
+        session.commit()
