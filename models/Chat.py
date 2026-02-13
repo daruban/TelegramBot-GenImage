@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, JSON
-from typing import Optional, List, Type, TypeVar, Generic, Dict
+from sqlalchemy import Column, Integer, Boolean, DateTime, JSON
+from typing import Dict
 from datetime import datetime
 from models.Base import Base, session
 import json  

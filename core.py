@@ -1,4 +1,3 @@
-import telebot
 from telebot import TeleBot
 from config.env import BOT_TOKEN
 

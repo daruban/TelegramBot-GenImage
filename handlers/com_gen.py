@@ -1,16 +1,5 @@
 from core import bot
-import base64
-from models.Chat import Chat
-from models.Base import session
-from datetime import datetime
-from handlers.gen_request import request
 from handlers.gen_hendler import gen_hendler
-from models.Progressmonitor import ProgressMonitor
-from config.env import STABLE_DIFFUSION_URL
-import json
-import threading
-
-
 
 @bot.message_handler(commands=["gen"], chat_types=["group"])
 def gen(message):

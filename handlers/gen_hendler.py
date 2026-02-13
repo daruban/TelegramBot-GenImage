@@ -7,7 +7,7 @@ import base64
 from models.Chat import Chat
 from models.Base import session
 from datetime import datetime
-from handlers.gen_request import request
+from handlers.gen_request import gen_request
 from models.Progressmonitor import ProgressMonitor
 from config.env import STABLE_DIFFUSION_URL
 import json
@@ -15,6 +15,7 @@ import threading
 
 
 def gen_hendler(message_chat_id, message_text):
+    """Обработка запроса на генерацию"""
     if Chat.get(message_chat_id):
         command_text = message_text.replace('/gen', '')
         
@@ -39,7 +40,7 @@ def gen_hendler(message_chat_id, message_text):
         monitor_thread.start()
         
         try:
-            otvet = request(payload)
+            otvet = gen_request(payload)
             if otvet and 'images' in otvet:
                 markup = InlineKeyboardMarkup()
                 Button = InlineKeyboardButton("Повторить", callback_data=f"gen_")

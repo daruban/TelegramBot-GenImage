@@ -1,7 +1,5 @@
 from core import bot
 from models.Chat import Chat
-from models.Base import session
-from datetime import datetime
 import json
 
 @bot.message_handler(commands=["post_conf"], chat_types=["group"])

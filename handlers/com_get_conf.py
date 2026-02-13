@@ -1,7 +1,5 @@
 from core import bot
 from models.Chat import Chat
-from models.Base import session
-from datetime import datetime
 
 @bot.message_handler(commands=["get_conf"], chat_types=["group"])
 def get_conf(message):
