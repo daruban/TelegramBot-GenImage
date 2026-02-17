@@ -2,14 +2,12 @@ from telebot.types import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
 )
-from core import bot
+from TelegramBotGenImage import bot
 import base64
-from models.Chat import Chat
-from models.Base import session
-from datetime import datetime
-from handlers.gen_request import gen_request
-from models.Progressmonitor import ProgressMonitor
-from config.env import STABLE_DIFFUSION_URL
+from TelegramBotGenImage.models.Chat import Chat
+from TelegramBotGenImage.handlers.gen_request import gen_request
+from TelegramBotGenImage.models.Progressmonitor import ProgressMonitor
+from TelegramBotGenImage.config.env import STABLE_DIFFUSION_URL
 import json
 import threading
 

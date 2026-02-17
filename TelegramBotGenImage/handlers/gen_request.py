@@ -1,6 +1,6 @@
 import requests
 import json
-from config.env import STABLE_DIFFUSION_URL
+from TelegramBotGenImage.config.env import STABLE_DIFFUSION_URL
 
 def gen_request(payload):
     """Запрос к сервису для генерации"""
